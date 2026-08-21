@@ -1,9 +1,59 @@
-# Feria-Virtual
-Feria Virtual 2026
-<ul> 
-<li>Nombre y Apellido: Nuñez Luna</li>
-<li>curso:4d </li>
-<li>tema elegido: virus-malware-antivirus</li>
-<li>fecha:20/08</li>
-</ul>
-<p>Este proyecto consiste en crear una pagina web en informatica sobre los virus informaticos, el malware y el antivirus. El objetivo es explicar que son, como afectan a los dispositivos y que medidas tomar para prevenir y proteger la informacion.</p>
+# 💻 Feria Virtual de Informática
+
+## E.E.T.P. N.º 468 "Ing. Luis B. Laporte"
+
+Proyecto colaborativo desarrollado por los estudiantes de 4.º año del Taller de Informática.
+
+## 📚 Sobre el proyecto
+
+La Feria Virtual de Informática es un sitio web colaborativo en el que cada estudiante desarrolla una página informativa sobre un tema relacionado con la informática y la tecnología.
+
+Los temas abordados incluyen hardware, software, redes, programación, videojuegos, inteligencia artificial y otras áreas de interés tecnológico.
+
+## 🎯 Objetivos
+
+- Investigar y comunicar información relacionada con la informática.
+- Aplicar conocimientos de HTML y CSS.
+- Desarrollar habilidades de trabajo colaborativo.
+- Utilizar GitHub como herramienta para organizar y publicar proyectos.
+- Crear un sitio web accesible para otros estudiantes de la institución.
+
+## 🛠️ Tecnologías utilizadas
+
+- HTML5
+- CSS3
+- GitHub
+- GitHub Pages
+
+## 👥 Participantes
+
+Estudiantes de 4.º año – Taller de Informática  
+E.E.T.P. N.º 468 "Ing. Luis B. Laporte"
+
+## 🌐 Sitio web
+
+
+
+## 📁 Organización del proyecto
+
+```text
+Feria-Virtual/
+│
+├── index.html
+├── style.css
+│
+├── alumno1/
+│   ├── index.html
+│   ├── otra-pagina.html
+│   └── img/
+│
+├── alumno2/
+│   ├── index.html
+│   ├── contacto.html
+│   └── img/
+│
+├── alumno3/
+│   ├── index.html
+│   └── img/
+│
+└── ...
