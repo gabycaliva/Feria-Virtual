@@ -57,3 +57,7 @@ Feria-Virtual/
 │   └── img/
 │
 └── ...
+
+### Y hay un detalle técnico importante
+
+La referencia al CSS no es <link rel="stylesheet" href="style.css">  sino <link rel="stylesheet" href="../style.css"> porque ../ significa "subir una carpeta".
