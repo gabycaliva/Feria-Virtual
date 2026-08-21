@@ -4,13 +4,13 @@
 
 Proyecto colaborativo desarrollado por los estudiantes de 4.º año del Taller de Informática.
 
-## 📚 Sobre el proyecto
+## Sobre el proyecto
 
 La Feria Virtual de Informática es un sitio web colaborativo en el que cada estudiante desarrolla una página informativa sobre un tema relacionado con la informática y la tecnología.
 
 Los temas abordados incluyen hardware, software, redes, programación, videojuegos, inteligencia artificial y otras áreas de interés tecnológico.
 
-## 🎯 Objetivos
+## Objetivos
 
 - Investigar y comunicar información relacionada con la informática.
 - Aplicar conocimientos de HTML y CSS.
@@ -18,23 +18,23 @@ Los temas abordados incluyen hardware, software, redes, programación, videojueg
 - Utilizar GitHub como herramienta para organizar y publicar proyectos.
 - Crear un sitio web accesible para otros estudiantes de la institución.
 
-## 🛠️ Tecnologías utilizadas
+## Tecnologías utilizadas
 
 - HTML5
 - CSS3
 - GitHub
 - GitHub Pages
 
-## 👥 Participantes
+## Participantes
 
 Estudiantes de 4.º año – Taller de Informática  
 E.E.T.P. N.º 468 "Ing. Luis B. Laporte"
 
-## 🌐 Sitio web
+## Sitio web
 
 
 
-## 📁 Organización del proyecto
+## Organización del proyecto
 
 ```text
 Feria-Virtual/
