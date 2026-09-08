@@ -38,7 +38,7 @@ header p{
 /* Menú */
 
 nav{
-    background:#1565c0;
+    background:#f4f4f4;
 }
 
 nav ul{
@@ -52,12 +52,14 @@ nav li{
 }
 
 nav a{
+    background-color: #1976d2;
     display:block;
     color:white;
     text-decoration:none;
     padding:15px 20px;
     transition:0.3s;
 }
+
 
 nav a:hover{
     background:#42a5f5;
@@ -155,6 +157,8 @@ footer{
     padding:20px;
     margin-top:30px;
 }
+
+/* CSS propio Terrazzino Ian Luca */
 
 html{
     scroll-behavior: smooth;
