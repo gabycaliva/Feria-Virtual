@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>Emuladores y Maquinas Virtuales</title>
+</head>
+<body id="inicio">
+    <div id="inicio"></div>
+    <header>
+        <h1>Emuladores y maquinas virtuales</h1>
+        <p>Lautaro Nuñez Spini </p>
+    </header>
+
+    
+    <nav>
+          <ul>
+                <li><a href="#introduccion">Introduccion</a></li>
+                <li><a href="#emuladores">Emuladores</a></li>
+                <li><a href="#maquinas_virtuales">Maquinas virtuales</a></li>
+                <li><a href="#diferencias">Diferencias</a></li>
+                <li><a href="#ventajas">Ventajas</a></li>
+                <li><a href="#dif_princ">Diferencia principal</a></li>
+                <li><a href="#conclusion">Conclusion</a></li>
+            </ul>
+    </nav>
+    
+    <div class="imagenes">
+        <img style="width: 300px;" src="./img/emulador.jpg" alt="emulador">
+        <img style="width: 300px;" src="./img/maquina-virtual.jpg" alt="maquina-virtual">
+    </div>
+    
+    <section id="introduccion">
+        <h2><u>Introduccion</u></h2>
+        <p><strong>¿Que son los emuladores y las maquinas virtuales?</strong></p>
+        <p>Los avances tecnológicos han permitido que una computadora pueda realizar funciones que anteriormente necesitaban otros dispositivos. Entre estas tecnologías se encuentran los emuladores y las máquinas virtuales, dos herramientas que permiten ejecutar software en entornos diferentes al original.</p>
+        <p>Aunque pueden parecer conceptos similares, cada uno tiene un funcionamiento y un propósito diferente. Los emuladores buscan reproducir el comportamiento de otro dispositivo o sistema, mientras que las máquinas virtuales permiten crear una computadora virtual dentro de una computadora física.</p>
+    </section>
+
+    <section id="emuladores">
+        <h2><u>Emuladores</u></h2>
+        <p><strong>¿Que es un emulador?</strong></p>
+        <p>Un emulador es un programa que permite que un dispositivo imite el funcionamiento de otro. Esto hace posible ejecutar programas, aplicaciones o videojuegos que fueron diseñados originalmente para una plataforma diferente.</p>
+        <p>Por ejemplo, una computadora puede utilizar un emulador para ejecutar software creado originalmente para una consola de videojuegos. El emulador intenta reproducir las características necesarias del dispositivo original para que el programa pueda funcionar.</p>
+        <div class="imagen">
+        <img src="./img/emuladores.webp" alt="Emuladores">
+        </div>
+        <p><strong>¿Para que se utilizan?</strong></p>
+        <p>Los emuladores tienen diferentes usos. Son utilizados para conservar software antiguo, realizar pruebas durante el desarrollo de programas y ejecutar aplicaciones creadas para otras plataformas.</p>
+        <p>También son conocidos por permitir utilizar videojuegos de sistemas antiguos en computadoras modernas, siempre respetando las leyes y los derechos de autor correspondientes.</p>
+        <p><strong>Si quieres saber mas sobre los emuladores, aqui te dejo un link con mas informacion:</strong> <a href="https://seon.io/es/recursos/glosario/emulador/">Emuladores - Seon</a></p>
+    </section>
+
+    <section id="maquinas_virtuales">
+        <h2><u>Maquinas Virtuales</u></h2>
+        <p><strong>¿Que es una maquina virtual?</strong></p>
+        <p>Una máquina virtual es un entorno creado mediante software que funciona como una computadora independiente dentro de otra computadora. Puede tener su propio sistema operativo, programas, archivos y configuraciones.</p>
+        <p>Por ejemplo, una computadora que utiliza Windows puede crear una máquina virtual en la que se encuentre instalado Linux. De esta manera, ambos sistemas pueden utilizarse en el mismo equipo.</p>
+        <div class="imagen">
+        <img src="./img/maquinas-virtuales.webp" alt="Maquinas Virtuales">
+        </div>
+        <p><strong>¿Para que se utilizan?</strong></p>
+        <p>Las máquinas virtuales son muy utilizadas para probar sistemas operativos, experimentar con programas, aprender informática y realizar tareas que requieren un entorno diferente.</p>
+        <p>También son importantes en empresas y servidores, ya que permiten ejecutar varios sistemas independientes utilizando un mismo equipo físico.</p>
+        <p><strong>Si quieres saber mas sobre las maquinas virtuales, aqui te dejo un link con mas informacion:</strong> <a href="https://www.redhat.com/es/topics/virtualization/what-is-a-virtual-machine">Maquinas Virtuales - Red Hat</a></p>
+    </section>
+
+    <section id="diferencias">
+        <h2><u>Diferencias</u></h2>
+        <p><strong>Emuladores vs. Maquinas Virtuales</strong></p>
+        <p>Aunque los dos conceptos están relacionados con la virtualización y la ejecución de software en otros entornos, no funcionan exactamente de la misma manera.</p>
+        <table>
+            <tr>
+                <th>Característica</th>
+                <th>Emuladores</th>
+                <th>Máquinas virtuales</th>
+            </tr>
+
+            <tr>
+                <th>Objetivo</th>
+                <td>Imitar otro dispositivo o sistema</td>
+                <td>Crear una computadora virtual</td>
+            </tr>
+
+            <tr>
+                <th>Ejemplo</th>
+                <td>Emular una consola de videojuegos</td>
+                <td>Ejecutar Linux dentro de Windows</td>
+            </tr>
+
+            <tr>
+                <th>Uso principal</th>
+                <td>Software de otras plataformas</td>
+                <td>Sistemas operativos y entornos de prueba</td>
+            </tr>
+
+            <tr>
+                <th>Rendimiento</th>
+                <td>Puede ser menor debido a la emulacion</td>
+                <td>Generalmente mas cercano al hardware real</td>
+            </tr>
+
+            <tr>
+                <th>Sistema operativo</th>
+                <td>No necesariamente necesita otro SO completo</td>
+                <td>Normalmente ejecuta un SO invitado</td>
+            </tr>
+
+            <tr>
+                <th>Recursos</th>
+                <td>Puede requerir bastante procesamiento</td>
+                <td>Utiliza una parte de los recursos del equipo</td>
+            </tr>
+
+            <tr>
+                <th>Ejemplo de uso</th>
+                <td>Ejecutar software de una consola antigua</td>
+                <td>Probar otro sistema operativo</td>
+            </tr>
+        </table>
+    </section>
+
+    <section id="ventajas">
+        <h2><u>Ventajas</u></h2>
+        <p><strong>Ventajas de los emuladores</strong></p>
+        <ul>
+            <li>Permiten utilizar software creado para otras plataformas.</li>
+            <li>Ayudan a conservar programas y videojuegos antiguos.</li>
+            <li>Permiten realizar pruebas sin disponer del dispositivo original.</li>
+            <li>Facilitan el desarrollo de software para diferentes plataformas.</li>
+        </ul>
+        <p><strong>Ventajas de las maquinas virtuales</strong></p>
+        <ul>
+            <li>Permiten ejecutar diferentes sistemas operativos en un mismo equipo.</li>
+            <li>Facilitan las pruebas y experimentos.</li>
+            <li>Permiten crear entornos separados del sistema principal.</li>
+            <li>Son útiles para aprender sobre diferentes sistemas operativos.</li>
+            <li>Pueden aprovechar mejor los recursos de un servidor.</li>
+        </ul>
+    </section>
+
+    <section id="dif_princ">
+        <h2><u>¿Cuál es la diferencia principal?</u></h2>
+        <p><strong>Dos tecnologías, diferentes objetivos</strong></p>
+        <p>La principal diferencia es que un emulador intenta reproducir el funcionamiento de otro dispositivo o arquitectura, mientras que una máquina virtual crea un entorno informático independiente dentro de un equipo físico.</p>
+        <p>En pocas palabras, un emulador permite que una computadora se comporte como otro dispositivo, mientras que una máquina virtual permite crear otra computadora de manera virtual.</p>
+    </section>
+
+    <section id="conclusion">
+        <h2><u>Conclusion</u></h2>
+        <p><strong>La tecnologia detras de lo virtual</strong></p>
+        <p>Los emuladores y las máquinas virtuales son herramientas importantes dentro de la informática moderna. Aunque tienen diferentes funciones, ambas permiten aprovechar el software de maneras que no serían posibles utilizando únicamente el hardware original.</p>
+        <p>Gracias a estas tecnologías es posible experimentar con diferentes sistemas, conservar software antiguo, realizar pruebas y aprender sobre informática sin necesitar numerosos dispositivos físicos.</p>
+    </section>
+
+    <footer>
+        <p>Lautaro Nuñez Spini</p>
+        <p>4°D</p>
+        <p>09/09/2026</p>
+    </footer>
+
+    <a href="#inicio" class="boton-inicio">↑</a>
+</body>
+</html>
