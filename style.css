@@ -1,3 +1,5 @@
+/* ===========================
+   FERIA VIRTUAL DE INFORMÁTICA
    Hoja de estilos base
 =========================== */
 
@@ -15,6 +17,7 @@ body{
     color:#333;
     line-height:1.6;
 }
+
 
 /* Encabezado */
 
@@ -151,3 +154,4 @@ footer{
     padding:20px;
     margin-top:30px;
 }
+
