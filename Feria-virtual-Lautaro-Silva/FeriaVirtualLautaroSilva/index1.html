@@ -8,7 +8,7 @@
 </head>
 <body>
     <header id="encabezado">
-        <h1><u>Deep web y navegación segura</u></h1>
+        <h1><u>Deep web y navegación segura</u>💻</h1>
         <h2>Introducción;</h2>
         <p>Trabajo de: Lautaro Silva.</p>
         <p>A mi me toco trabajar sobre la Deep web y navegación segura.</p>
@@ -34,25 +34,25 @@
          
         nav{
             background: #1565c0;
-            animation: carga 4s linear infinite;
+            animation: carga 8s linear infinite;
         }
 
         @keyframes carga {
             0% { background: #1565c0; }
             50% { background: #0034c4; }
-            75% { background: #0c48eb; }
+            75% { background: #002da8; }
             100% { background: #1565c0; }
         }
 
         header{
             background: #1565c0;
-            animation: carga 4s linear infinite;
+            animation: carga 8s linear infinite;
         }
 
         @keyframes carga {
             0% { background: #1565c0; }
             50% { background: #0034c4; }
-            75% { background: #0c48eb; }
+            75% { background: #002da8; }
             100% { background: #1565c0; }
         }
 
@@ -68,13 +68,13 @@
     </section>
 
     <section id="surface">
-        <h2><u><a href="#encabezado"></a>¿Qué es la Surface Web?</u></h2>
+        <h2><u><a href="#encabezado">¿Qué es la Surface Web?</a></u></h2>
      <p>La <strong>Surface Web</strong>, también llamada web superficial o visible, es la parte de Internet que podemos encontrar normalmente mediante buscadores como <strong>Google </strong> o <strong>Bing</strong>. <br> Por ejemplo, cuando buscamos una noticia, una receta, una página institucional o información para realizar un trabajo escolar, normalmente estamos utilizando la Surface Web. <br>Esta parte de Internet es solamente una fracción de todo el contenido existente en la red. </p>
     </section>    
     <section id="deep">
         <h2><u><a href="#encabezado">¿Qué es la Deep web?</a></u></h2>
         <details>
-            <summary>Ver video.</summary>
+            <summary id="botón"><strong>Ver video.</strong></summary>
             <iframe width="560" height="315" src="https://www.youtube.com/embed/LFEI24HsxRI?si=PFS82SQqIVZd2sRe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </details>
         <p>La <strong>Deep Web</strong> (o internet profunda) es el conjunto de contenidos de internet que no están indexados por los motores de búsqueda convencionales como Google, Bing o Yahoo. Esto no significa que sean contenidos ilegales o peligrosos. <br> De hecho, utilizamos la Deep Web constantemente sin darnos cuenta. Algunos ejemplos son:</p>
@@ -87,6 +87,20 @@
         <ul><li>Información disponible solamente para usuarios autorizados.</li></ul>
         <p>Por lo tanto, decir que la Deep Web es "la parte ilegal de Internet" es incorrecto. La mayor parte de ella está formada por información privada o que simplemente no puede ser indexada por los buscadores.</p>
     </section>
+
+    <style>
+        #botón{
+            color: #053acc;
+        }
+
+        strong{
+            color: #033b7a;
+        }
+
+        ul{
+            color: #0f488a;
+        }
+    </style>
 
     <section id="caracteristicas">
         <h3><u><a href="#encabezado">Características principales:</a></u></h3>
@@ -139,6 +153,8 @@
     <p>La Deep Web y la Dark Web forman parte de un Internet mucho más amplio de lo que podemos observar mediante los buscadores tradicionales. Sin embargo, ambos conceptos son diferentes y no deben utilizarse como sinónimos. <br><br> La Deep Web contiene una gran cantidad de información cotidiana que simplemente no está indexada, como correos electrónicos, cuentas personales y bases de datos privadas. La Dark Web, en cambio, representa una parte específica de Internet que utiliza tecnologías destinadas a aumentar el anonimato. <br><br> Estas tecnologías pueden tener usos legítimos, pero también pueden ser aprovechadas para cometer delitos. Por eso es fundamental conocer sus características y, sobre todo, desarrollar buenos hábitos de seguridad. <br><br> La mejor forma de protegernos no consiste solamente en utilizar determinadas herramientas, sino en <strong>mantener nuestros dispositivos actualizados, proteger nuestras contraseñas, reconocer posibles estafas y pensar cuidadosamente antes de compartir información o descargar archivos</strong>.</p>
     </section>
 
+    <button id="btnArriba" onclick="IrArriba()"><a href="#encabezado"><strong>⬆</strong></a></button>
+
     <footer id="F" style="display: flex; justify-content: space-between;">
         <p>Silva Lautaro 4°D</p>
         <P>09-09-26</P>
@@ -155,15 +171,34 @@
 
     footer{
     background: #1565c0;
-    animation: carga 4s linear infinite;
+    animation: carga 8s linear infinite;
     }
 
   @keyframes carga {
   0% { background: #1565c0; }
   50% { background: #0034c4; }
-  75% { background: #0c48eb; }
+  75% { background: #002da8; }
   100% { background: #1565c0; }
     }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    #btnArriba {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        padding: 10px 15px;
+        background-color: #c4c9d6;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        z-index: 1000;
+    }
+
     </style>
+
 </body>
-</html> 
+</html>
