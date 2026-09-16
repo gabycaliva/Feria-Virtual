@@ -1,0 +1,253 @@
+/* ===========================
+   FERIA VIRTUAL DE INFORMÁTICA
+   Robótica aplicada a la industria
+   =========================== */
+
+
+/* ===========================
+   ESTILOS GENERALES
+   =========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+
+/* ===========================
+   ENCABEZADO
+   =========================== */
+
+header {
+    background: #0d47a1;
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+header h1 {
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 18px;
+}
+
+
+/* ===========================
+   MENÚ
+   =========================== */
+
+nav {
+    background: #1565c0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav li {
+    margin: 0;
+}
+
+nav a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    background: #42a5f5;
+}
+
+
+/* ===========================
+   CONTENIDO
+   =========================== */
+
+main {
+    width: 90%;
+    max-width: 1100px;
+    margin: 25px auto;
+}
+
+
+/* ===========================
+   SECCIONES
+   =========================== */
+
+section {
+    background: white;
+    margin-bottom: 25px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, .15);
+}
+
+section h2 {
+    color: #0d47a1;
+    margin-bottom: 15px;
+    border-left: 5px solid #42a5f5;
+    padding-left: 10px;
+}
+
+section h3 {
+    color: #1565c0;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+section p {
+    margin-bottom: 15px;
+}
+
+
+/* ===========================
+   MARCOS PARA IMÁGENES
+   =========================== */
+
+.imagen-contenedor {
+    width: 80%;
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 8px;
+    border: 3px solid #1565c0;
+    border-radius: 8px;
+    background: #e3f2fd;
+}
+
+.imagen-contenedor img {
+    width: 100%;
+    display: block;
+    margin: 0;
+    border: none;
+    border-radius: 4px;
+}
+
+
+/* ===========================
+   LISTAS
+   =========================== */
+
+ul,
+ol {
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+
+/* ===========================
+   TABLAS
+   =========================== */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table,
+th,
+td {
+    border: 1px solid #999;
+}
+
+th {
+    background: #1976d2;
+    color: white;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: center;
+}
+
+
+/* ===========================
+   ENLACES
+   =========================== */
+
+a {
+    color: #1565c0;
+}
+
+a:hover {
+    color: #0d47a1;
+}
+
+
+/* ===========================
+   PIE DE PÁGINA
+   =========================== */
+
+footer {
+    background: #0d47a1;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+footer p {
+    margin-bottom: 5px;
+}
+
+
+/* ===========================
+   ADAPTACIÓN PARA CELULAR
+   =========================== */
+
+@media (max-width: 700px) {
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav a {
+        padding: 10px 15px;
+    }
+
+    main {
+        width: 94%;
+    }
+
+    .imagen-contenedor {
+        width: 100%;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    th,
+    td {
+        padding: 7px;
+    }
+}
+
+.menuestatico{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+}
