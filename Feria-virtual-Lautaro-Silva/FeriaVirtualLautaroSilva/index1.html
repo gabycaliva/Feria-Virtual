@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
-    <header id="encabezado">
+    
+        <header id="encabezado">
         <h1><u>Deep web y navegación segura</u>💻</h1>
         <h2>Introducción;</h2>
         <p>Trabajo de: Lautaro Silva.</p>
@@ -153,8 +154,55 @@
     <p>La Deep Web y la Dark Web forman parte de un Internet mucho más amplio de lo que podemos observar mediante los buscadores tradicionales. Sin embargo, ambos conceptos son diferentes y no deben utilizarse como sinónimos. <br><br> La Deep Web contiene una gran cantidad de información cotidiana que simplemente no está indexada, como correos electrónicos, cuentas personales y bases de datos privadas. La Dark Web, en cambio, representa una parte específica de Internet que utiliza tecnologías destinadas a aumentar el anonimato. <br><br> Estas tecnologías pueden tener usos legítimos, pero también pueden ser aprovechadas para cometer delitos. Por eso es fundamental conocer sus características y, sobre todo, desarrollar buenos hábitos de seguridad. <br><br> La mejor forma de protegernos no consiste solamente en utilizar determinadas herramientas, sino en <strong>mantener nuestros dispositivos actualizados, proteger nuestras contraseñas, reconocer posibles estafas y pensar cuidadosamente antes de compartir información o descargar archivos</strong>.</p>
     </section>
 
-    <button id="btnArriba" onclick="IrArriba()"><a href="#encabezado"><strong>⬆</strong></a></button>
+    <section id="Formulario">
+        <h2><u>Formulario de contacto</u></h2>
+        <input type="text" id="nombre" placeholder="Tu nombre">
+        <input type="email" id="email" placeholder="Tu email">
+        <textarea id="texto" placeholder="Tu mensaje"></textarea>
 
+        <button id="Form" onclick="enviar()">Enviar</button>
+        <p id="mensaje"></p>
+    </section>
+
+    <style>
+        input {
+            display: block;
+            margin-bottom: 15px;
+            width: 250px;
+            height: 25px;
+            border-radius: 5px;
+            border: 2px solid #033b7a;
+        }
+
+        textarea {
+             width: 250px;
+            height: 25px;
+            border-radius: 5px;
+            border: 2px solid #033b7a;
+        }
+
+        /*boton*/
+        #Form {
+            background-color: #033b7a;
+            color: white;
+            width: 100px;
+            height: 30px;
+            cursor: pointer;
+        }
+        /*boton*/
+        #Form:hover {
+            background-color: #155399;
+        }
+
+        #respuesta {
+            color: green;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+
+    <button id="btnArriba" onclick="IrArriba()"><a href="#encabezado"><strong>⬆</strong></a></button>
+    
     <footer id="F" style="display: flex; justify-content: space-between;">
             <p>Silva Lautaro 4°D</p>
             <P>09-09-26</P>
@@ -201,5 +249,22 @@
 
     </style>
 
+    <script>
+        function enviar() {
+    let nombre = document.getElementById("nombre").value;
+    let email = document.getElementById("email").value;
+    let texto = document.getElementById("texto").value;
+    let respuesta = document.getElementById("mensaje");
+
+    if (nombre === "" || email === "" || texto === "") {
+        respuesta.innerText = "Completá todos los campos";
+        respuesta.style.color = "red";
+
+    } else {
+        respuesta.innerText = "Gracias " + nombre + ", Recibimos tu mensaje. Te respondemos a " + email;
+        respuesta.style.color = "green";
+    }
+}
+    </script>
 </body>
 </html>
