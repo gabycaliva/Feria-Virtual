@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Puertos de PC</title>
+    <style>
+        /* Estilos sencillos sin librerías externas */
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 15px;
+        }
+
+        .container {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 500px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-top: 0;
+            font-size: 24px;
+        }
+
+        .stats-bar {
+            display: flex;
+            justify-content: space-between;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            background-color: #e9ecef;
+            padding: 10px 15px;
+            border-radius: 8px;
+        }
+
+        .lives {
+            color: #e63946;
+        }
+
+        .score {
+            color: #2a9d8f;
+        }
+
+        .description-box {
+            background-color: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            min-height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: #495057;
+            line-height: 1.4;
+        }
+
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .btn-option {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-option:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-option:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+
+        .message {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            min-height: 24px;
+        }
+
+        .correct {
+            color: #28a745;
+        }
+
+        .incorrect {
+            color: #dc3545;
+        }
+
+        .btn-next {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .btn-next:hover {
+            background-color: #218838;
+        }
+
+        /* Modal para el fin del juego */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .modal-content h2 {
+            margin-top: 0;
+        }
+
+        .btn-restart {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .btn-restart:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Adivina el Puerto de PC</h1>
+
+        <!-- Marcador -->
+        <div class="stats-bar">
+            <div class="lives" id="lives-display">Vidas: ❤️ ❤️ ❤️</div>
+            <div class="score" id="score-display">Puntos: 0 / 6</div>
+        </div>
+
+        <!-- Descripción del puerto -->
+        <div class="description-box" id="description-text">
+            Cargando pregunta...
+        </div>
+
+        <!-- Opciones de respuesta -->
+        <div class="options-container" id="options-box">
+            <!-- Botones generados por JS -->
+        </div>
+
+        <!-- Mensaje de correcto/incorrecto -->
+        <div class="message" id="message-text"></div>
+
+        <!-- Botón para la siguiente pregunta -->
+        <button class="btn-next" id="next-btn" style="display: none;" onclick="siguientePregunta()">Siguiente pregunta</button>
+    </div>
+
+    <!-- Pantalla de Victoria/Derrota -->
+    <div class="modal" id="game-over-modal">
+        <div class="modal-content">
+            <h2 id="modal-title">¡Fin del juego!</h2>
+            <p id="modal-message">Mensaje final...</p>
+            <button class="btn-restart" onclick="reiniciarJuego()">Jugar de nuevo</button>
+        </div>
+    </div>
+
+    <script>
+        // Lista de puertos con sus nombres y descripciones sencillas
+        const puertos = [
+            { nombre: "USB", descripcion: "Es el puerto más común para conectar teclados, ratones, pendrives y muchos otros dispositivos." },
+            { nombre: "HDMI", descripcion: "Envía señal de video en alta definición y sonido todo por un mismo cable a monitores o TVs." },
+            { nombre: "VGA", descripcion: "Puerto antiguo de color azul con 15 agujeros que sirve solo para enviar imagen a la pantalla." },
+            { nombre: "M.2", description: "Ranura pequeña dentro de la tarjeta madre donde se conectan los discos SSD más rápidos." },
+            { nombre: "PCIe", description: "Ranuras largas dentro de la PC para poner tarjetas de video, de sonido o de red." },
+            { nombre: "NVMe", description: "Tecnología de almacenamiento ultrarrápida que usan los SSD modernos tipo M.2." },
+            { nombre: "SATA", description: "Conector con cable plano usado para discos duros normales y SSDs tradicionales." },
+            { nombre: "PS/2", description: "Puerto circular viejo de colores violeta o verde usado antes para teclados y ratones." },
+            { nombre: "RJ45", description: "Puerto para el cable de red o Ethernet que da conexión a internet por cable." }
+        ];
+
+        // Variables del juego
+        let vidas = 3;
+        let aciertos = 0;
+        let puertoActual = null;
+        let puertoAnterior = null;
+
+        // Elementos del DOM
+        const livesDisplay = document.getElementById("lives-display");
+        const scoreDisplay = document.getElementById("score-display");
+        const descriptionText = document.getElementById("description-text");
+        const optionsBox = document.getElementById("options-box");
+        const messageText = document.getElementById("message-text");
+        const nextBtn = document.getElementById("next-btn");
+        const modal = document.getElementById("game-over-modal");
+
+        // Iniciar juego cuando cargue la página
+        window.onload = function() {
+            reiniciarJuego();
+        };
+
+        function reiniciarJuego() {
+            vidas = 3;
+            aciertos = 0;
+            puertoAnterior = null;
+            modal.style.display = "none";
+            actualizarMarcador();
+            cargarPregunta();
+        }
+
+        function actualizarMarcador() {
+            // Mostrar los corazones según las vidas
+            let corazones = "";
+            for (let i = 0; i < vidas; i++) {
+                corazones += "❤️ ";
+            }
+            livesDisplay.textContent = "Vidas: " + (corazones || "❌");
+            scoreDisplay.textContent = "Puntos: " + aciertos + " / 6";
+        }
+
+        function cargarPregunta() {
+            // Limpiar interfaz de la ronda anterior
+            messageText.textContent = "";
+            messageText.className = "message";
+            nextBtn.style.display = "none";
+            optionsBox.innerHTML = "";
+
+            // Seleccionar un puerto aleatorio (evitando repetir el anterior inmediato)
+            let puertosDisponibles = puertos.filter(p => p.nombre !== puertoAnterior);
+            let indiceAleatorio = Math.floor(Math.random() * puertosDisponibles.length);
+            puertoActual = puertosDisponibles[indiceAleatorio];
+            puertoAnterior = puertoActual.nombre;
+
+            // Mostrar la descripción
+            descriptionText.textContent = puertoActual.descripcion;
+
+            // Conseguir 2 opciones incorrectas aleatorias
+            let incorrectos = puertos.filter(p => p.nombre !== puertoActual.nombre);
+            incorrectos.sort(() => Math.random() - 0.5); // Mezclar
+            let opciones = [puertoActual, incorrectos[0], incorrectos[1]];
+
+            // Mezclar las 3 opciones
+            opciones.sort(() => Math.random() - 0.5);
+
+            // Crear los 3 botones
+            opciones.forEach(opcion => {
+                const btn = document.createElement("button");
+                btn.className = "btn-option";
+                btn.textContent = opcion.nombre;
+                btn.onclick = function() {
+                    verificarRespuesta(opcion.nombre);
+                };
+                optionsBox.appendChild(btn);
+            });
+        }
+
+        function verificarRespuesta(nombreSeleccionado) {
+            // Desactivar todos los botones de opciones para que no sigan haciendo click
+            const botones = optionsBox.querySelectorAll("button");
+            botones.forEach(b => b.disabled = true);
+
+            if (nombreSeleccionado === puertoActual.nombre) {
+                // Ganó un punto
+                aciertos++;
+                messageText.textContent = "¡Correcto! Es el puerto " + puertoActual.nombre;
+                messageText.className = "message correct";
+            } else {
+                // Perdió una vida
+                vidas--;
+                messageText.textContent = "Incorrecto. Era el puerto " + puertoActual.nombre;
+                messageText.className = "message incorrect";
+            }
+
+            actualizarMarcador();
+
+            // Comprobar si ganó o perdió
+            if (aciertos >= 6) {
+                setTimeout(mostrarVictoria, 800);
+            } else if (vidas <= 0) {
+                setTimeout(mostrarDerrota, 800);
+            } else {
+                nextBtn.style.display = "block";
+            }
+        }
+
+        function siguientePregunta() {
+            cargarPregunta();
+        }
+
+        function mostrarVictoria() {
+            document.getElementById("modal-title").textContent = "¡Ganaste! 🎉";
+            document.getElementById("modal-title").style.color = "#28a745";
+            document.getElementById("modal-message").textContent = "¡Felicidades! Lograste adivinar los 6 puertos correctamente.";
+            modal.style.display = "flex";
+        }
+
+        function mostrarDerrota() {
+            document.getElementById("modal-title").textContent = "¡Perdiste! 😞";
+            document.getElementById("modal-title").style.color = "#dc3545";
+            document.getElementById("modal-message").textContent = "Te quedaste sin vidas. Lograste " + aciertos + " aciertos de 6.";
+            modal.style.display = "flex";
+        }
+    </script>
+</body>
+</html>
