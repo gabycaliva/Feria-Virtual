@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preguntas de Realidad Virtual y Aumentada</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #eaf1ff;
+      margin: 0;
+      padding: 20px;
+      color: #222;
+    }
+    .caja {
+      max-width: 650px;
+      margin: 30px auto;
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px #0002;
+    }
+    h1 { text-align: center; color: #3156a5; }
+    .pregunta {
+      border: 1px solid #ccd6ee;
+      border-radius: 8px;
+      padding: 15px;
+      margin: 15px 0;
+    }
+    .pregunta p { font-weight: bold; }
+    label {
+      display: block;
+      margin: 10px 0;
+      cursor: pointer;
+    }
+    button {
+      background: #3156a5;
+      color: white;
+      border: 0;
+      padding: 11px 18px;
+      margin: 8px 5px 0 0;
+      border-radius: 7px;
+      cursor: pointer;
+      font-size: 15px;
+    }
+    button:hover { background: #243f7c; }
+    #resultado { font-weight: bold; margin-top: 18px; }
+    .correcta { color: #16803c; }
+    .incorrecta { color: #c62828; }
+  </style>
+</head>
+<body>
+  <div class="caja">
+    <h1>Realidad Virtual y Aumentada</h1>
+    <p>Responde las 3 preguntas que salieron al azar.</p>
+    <div id="juego"></div>
+    <button onclick="comprobarRespuestas()">Comprobar respuestas</button>
+    <button onclick="empezarJuego()">Volver a jugar</button>
+    <p id="resultado"></p>
+  </div>
+
+  <script>
+    
+    const preguntas = [
+      {
+        pregunta: "¿Qué hace la realidad virtual (RV)?",
+        opciones: ["Crea un entorno digital en el que puedes entrar", "Solo agrega dibujos a una foto", "Mejora la velocidad de internet"],
+        correcta: 0
+      },
+      {
+        pregunta: "¿Qué suele usarse para experimentar la realidad virtual?",
+        opciones: ["Una impresora", "Un visor o gafas de realidad virtual", "Un parlante común"],
+        correcta: 1
+      },
+      {
+        pregunta: "¿Qué hace la realidad aumentada (RA)?",
+        opciones: ["Apaga los objetos reales", "Reemplaza todo el mundo real", "Agrega elementos digitales a lo que vemos del mundo real"],
+        correcta: 2
+      },
+      {
+        pregunta: "¿Cuál es un ejemplo de realidad aumentada?",
+        opciones: ["Ver un mueble virtual en tu habitación usando el celular", "Leer un libro de papel", "Escuchar la radio"],
+        correcta: 0
+      },
+      {
+        pregunta: "¿Cuál de estas tecnologías crea un entorno completamente virtual?",
+        opciones: ["Realidad aumentada", "Realidad virtual", "Una cámara normal"],
+        correcta: 1
+      },
+      {
+        pregunta: "¿Qué dispositivo puede usarse para ver realidad aumentada?",
+        opciones: ["Una tostadora", "Un control remoto común", "Un celular o una tablet"],
+        correcta: 2
+      },
+      {
+        pregunta: "¿Para qué puede servir la realidad virtual en la educación?",
+        opciones: ["Para visitar lugares o practicar en simulaciones", "Para reemplazar todas las materias", "Para no necesitar estudiar"],
+        correcta: 0
+      },
+      {
+        pregunta: "¿La realidad aumentada necesita que dejes de ver el mundo real?",
+        opciones: ["Sí, siempre", "No, agrega cosas digitales sobre el mundo real", "Sí, porque solo funciona en videojuegos"],
+        correcta: 1
+      },
+      {
+        pregunta: "¿Cuál es una diferencia entre RV y RA?",
+        opciones: ["Son exactamente iguales", "La RA solo funciona sin pantallas", "La RV crea un entorno virtual y la RA agrega elementos digitales al entorno real"],
+        correcta: 2
+      },
+      {
+        pregunta: "¿En qué área se pueden usar la RV y la RA?",
+        opciones: ["En educación, medicina y videojuegos", "Solo para cocinar", "Únicamente para escribir documentos"],
+        correcta: 0
+      }
+    ];
+
+    let preguntasElegidas = [];
+
+    function empezarJuego() {
+      // Mezcla las preguntas y elige solo 3
+      const mezcladas = [...preguntas].sort(() => Math.random() - 0.5);
+      preguntasElegidas = mezcladas.slice(0, 3);
+
+      const juego = document.getElementById("juego");
+      juego.innerHTML = "";
+      document.getElementById("resultado").textContent = "";
+
+      preguntasElegidas.forEach((p, indice) => {
+        let contenido = `<div class="pregunta">
+          <p>${indice + 1}. ${p.pregunta}</p>`;
+
+        p.opciones.forEach((opcion, i) => {
+          contenido += `<label>
+            <input type="radio" name="pregunta${indice}" value="${i}">
+            ${opcion}
+          </label>`;
+        });
+
+        contenido += "</div>";
+        juego.innerHTML += contenido;
+      });
+    }
+
+    function comprobarRespuestas() {
+      let puntos = 0;
+      let respondidas = 0;
+
+      preguntasElegidas.forEach((p, indice) => {
+        const elegida = document.querySelector(
+          `input[name="pregunta${indice}"]:checked`
+        );
+
+        if (elegida) {
+          respondidas++;
+          if (Number(elegida.value) === p.correcta) {
+            puntos++;
+          }
+        }
+      });
+
+      const resultado = document.getElementById("resultado");
+
+      if (respondidas < 3) {
+        resultado.textContent = "Responde las 3 preguntas antes de comprobar.";
+        resultado.className = "";
+        return;
+      }
+
+      resultado.textContent = "Tu puntaje es " + puntos + " de 3.";
+      resultado.className = puntos === 3 ? "correcta" : "";
+    }
+
+    empezarJuego();
+  </script>
+  <a href="https://gabycaliva.github.io/Feria-Virtual/FERIA%20VIRTUAL%20FRANCO%20RUIZ%20HIDALGO/index.html"></a>
+</body>
+</html>
