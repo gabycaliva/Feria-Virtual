@@ -6,14 +6,14 @@
     <title>Document</title>
     <link rel="stylesheet" href="../style.css">
     <style>
-    /* Color de fondo de toda la página */
+
     body {
         background-color: #eaf4f4;
         margin: 0;
         padding: 20px;
     }
 
-    /* Estilos para los enlaces */
+    
     a {
         color: #0066cc;
         text-decoration: none;
@@ -22,14 +22,14 @@
         padding: 8px 12px;
     }
 
-    /* Cuando pasás el mouse por encima */
+    
     a:hover {
         color: white;
         background-color: #0066cc;
         border-radius: 5px;
     }
 
-    /* Secciones */
+
     section {
         background-color: white;
         margin: 20px 0;
@@ -37,7 +37,7 @@
         border-radius: 10px;
     }
 
-    /* Títulos */
+
     h1 {
         background-color: #0066cc;
         color: white;
@@ -76,6 +76,95 @@ input {
     border-radius: 5px;
     border: 2px solid rgb(233, 83, 108);
 }
+#juego {
+    text-aling: center;
+        }
+. información {
+    display: flex;
+    justify-content:space-between; 
+    gap: 10 px; 
+    font-weight: bold; 
+    margin: 20 px 0; 
+}
+#imagen {
+    display: block; 
+    width: 100 %; 
+    max-width: 350 px;
+    height:220 px;
+    object-fit: contain; 
+    margin: 15 px auto; 
+    border-radius: 10 px;
+}
+#pregunta {
+    margin: 20 px 0;
+}
+#opciones {
+    display: flex;
+    flex-direction: column;
+    gap: 10 px;
+}
+button {
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover:not(:disabled) {
+    background-color: #004a99;
+}
+
+button:disabled {
+    background-color: #999999;
+    cursor: not-allowed;
+}
+
+#resultado {
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.correcta {
+    background-color: green;
+}
+
+.incorrecta {
+    background-color: red;
+}
+
+/* RESULTADO FINAL */
+
+#final {
+    text-align: center;
+    padding: 20px;
+}
+
+#mensaje-final {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+#detalle-final {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.aprobado {
+    color: green !important;
+}
+
+.desaprobado {
+    color: red !important;
+}
+
+.oculto {
+    display: none !important;
+}
+        
 </style>
 </head>
 <body>
