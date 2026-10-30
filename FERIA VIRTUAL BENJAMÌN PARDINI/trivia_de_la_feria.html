@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Trivia de periféricos</title>
+</head>
+<body>
+
+    <h1>Juego de periféricos</h1>
+
+    <p>Respondé las siguientes preguntas:</p>
+
+    <div id="juego">
+        Cargando preguntas...
+    </div>
+
+    <button id="corregir" type="button">Comprobar respuestas</button>
+
+    <p id="resultado"></p>
+
+    <button id="reiniciar" type="button">Jugar otra vez</button>
+     <script>
+        const preguntas = [
+            {
+                pregunta: "¿Cuáles son periféricos de entrada?",
+                opciones: ["Teclado", "Mouse", "Impresora", "Micrófono"],
+                correctas: [0, 1, 3]
+            },
+            {
+                pregunta: "¿Cuáles son periféricos de salida?",
+                opciones: ["Monitor", "Impresora", "Escáner", "Parlantes"],
+                correctas: [0, 1, 3]
+            },
+            {
+                pregunta: "¿Para qué sirve un teclado?",
+                opciones: ["Escribir texto", "Introducir números", "Imprimir", "Ingresar comandos"],
+                correctas: [0, 1, 3]
+            },
+            {
+                pregunta: "¿Qué dispositivos almacenan información?",
+                opciones: ["Memoria USB", "Disco duro externo", "Auriculares", "Tarjeta de memoria"],
+                correctas: [0, 1, 3]
+            },
+            {
+                pregunta: "¿Qué dispositivos permiten conectarse a una red?",
+                opciones: ["Router", "Adaptador Wi-Fi", "Micrófono", "Adaptador de red"],
+                correctas: [0, 1, 3]
+            },
+            {
+                pregunta: "¿Cuáles son periféricos mixtos?",
+                opciones: ["Pantalla táctil", "Auriculares con micrófono", "Escáner común", "Impresora multifunción"],
+                correctas: [0, 1, 3]
+            },
+            {
+                pregunta: "¿Para qué se utiliza un micrófono?",
+                opciones: ["Grabar sonidos", "Realizar videollamadas", "Imprimir imágenes", "Grabar la voz"],
+                correctas: [0, 1, 3]
+            },
+            {
+                pregunta: "¿Cuáles sirven para reproducir sonido?",
+                opciones: ["Parlantes", "Auriculares", "Micrófono", "Teclado"],
+                correctas: [0, 1]
+            },
+            {
+                pregunta: "¿Cuáles pueden ser inalámbricos?",
+                opciones: ["Mouse Bluetooth", "Teclado inalámbrico", "Impresora Wi-Fi", "Monitor conectado por cable"],
+                correctas: [0, 1, 2]
+            },
+            {
+                pregunta: "¿Qué afirmaciones son correctas?",
+                opciones: [
+                    "Todos los periféricos introducen datos",
+                    "Amplían las funciones de la computadora",
+                    "Algunos permiten introducir y recibir información",
+                    "Un monitor común es de entrada"
+                ],
+                correctas: [1, 2]
+            }
+        ];
+
+        let seleccionadas = [];
+
+        function iniciarJuego() {
+            seleccionadas = [];
+
+            let copia = [...preguntas];
+
+            copia.sort(() => Math.random() - 0.5);
+
+            let tresPreguntas = copia.slice(0, 3);
+
+            let contenido = "";
+
+            tresPreguntas.forEach((p, indice) => {
+                contenido += "<h3>" + (indice + 1) + ". " + p.pregunta + "</h3>";
+
+                p.opciones.forEach((opcion, i) => {
+                    contenido +=
+                        '<label><input type="checkbox" name="p' +
+                        indice + '" value="' + i + '"> ' +
+                        opcion + '</label><br>';
+                });
+
+                contenido += "<div></div>";
+
+                seleccionadas.push(p);
+            });
+
+            document.getElementById("juego").innerHTML = contenido;
+            document.getElementById("resultado").textContent = "";
+            document.getElementById("corregir").disabled = false;
+        }
+
+        function corregir() {
+            let puntaje = 0;
+
+            seleccionadas.forEach((p, indice) => {
+                let marcadas = document.querySelectorAll(
+                    'input[name="p' + indice + '"]:checked'
+                );
+
+                let respuestas = Array.from(marcadas).map(
+                    c => Number(c.value)
+                );
+
+                let acerto =
+                    respuestas.length === p.correctas.length &&
+                    p.correctas.every(r => respuestas.includes(r));
+
+                if (acerto) {
+                    puntaje++;
+                }
+
+                document.querySelectorAll(
+                    'input[name="p' + indice + '"]'
+                ).forEach(c => c.disabled = true);
+            });
+
+            document.getElementById("resultado").textContent =
+                "Obtuviste " + puntaje + " de 3 puntos.";
+
+            document.getElementById("corregir").disabled = true;
+        }
+
+        document.getElementById("corregir").onclick = corregir;
+        document.getElementById("reiniciar").onclick = iniciarJuego;
+
+        iniciarJuego();
+    </script>
+</body>
+</html>
