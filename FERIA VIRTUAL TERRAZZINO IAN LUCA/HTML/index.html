@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistemas operativos: Windows Vs. Linux</title>
+    <title>Document</title>
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../Juego.css">
+    <script src="./script.js" defer></script>
 
     <style>
 
@@ -195,6 +197,59 @@
         </section>
 
     </div>
+
+    <!-- Juego -->
+
+    <main class="contenedor">
+        <h1>🖥️Prueba de Sistemas Operativos🖥️</h1>
+        <p class="descripcion">
+            ¿Cuánto sabes sobre Windows y Linux?
+        </p>
+
+        <section id="juego">
+            <div class="informacion">
+                <div class="dato">
+                    Pregunta: <span id="numero-pregunta">1</span>/10
+                </div>
+                <div class="dato">
+                    Puntos: <span id="puntaje">0</span>
+                </div>
+            </div>
+
+            <div class="barra-fondo">
+                <div id="barra-progreso"></div>
+            </div>
+
+            <h2 id="pregunta">
+                ¿Cuál es el sistema operativo de la imágen?
+            </h2>
+
+            
+        <div class="imagen-contenedor" id="contenedor-imagen">
+            <img id="imagen-componente"
+                src="../IMG_Juego/linux-logo-juego.png"
+                alt="linux-logo">
+        </div>
+
+        <p id="pregunta-teorica" class="pregunta-teorica oculto"></p>
+
+
+            <div class="opciones" id="opciones"></div>
+
+            <p id="mensaje" aria-live="polite"></p>
+        </section>
+
+        <section id="resultado" class="oculto">
+            <h2>¡Terminó el juego!</h2>
+            <p>Tu puntaje es:</p>
+            <div id="puntaje-final">0 puntos</div>
+            <p id="resumen"></p>
+
+            <button id="reiniciar" class="boton-principal">
+                🔄 Volver a jugar
+            </button>
+        </section>
+    </main>
 
     <!-- Footer -->
     <div>
