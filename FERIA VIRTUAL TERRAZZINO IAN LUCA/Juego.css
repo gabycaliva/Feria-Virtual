@@ -1,0 +1,272 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background:#f4f4f4;
+    color:#333;
+    line-height:1.6;
+}
+
+header{
+    background:#0d47a1;
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+header h1{
+    margin-bottom:10px;
+}
+
+header p{
+    font-size:18px;
+}
+
+main{
+    width:90%;
+    max-width:1100px;
+    margin:25px auto;
+}
+
+section{
+    background:white;
+    margin-bottom:25px;
+    padding:20px;
+    border-radius:8px;
+    box-shadow:0 0 8px rgba(0,0,0,.15);
+}
+
+section h2{
+    color:#3e75c7;
+    margin-bottom:15px;
+}
+
+section p{
+    margin-bottom:15px;
+}
+
+/* Imágenes */
+
+img{
+    display:block;
+    width:80%;
+    max-width:500px;
+    margin:20px auto;
+    border-radius:8px;
+    border:3px solid #ddd;
+}
+
+.contenedor {
+    width: 100%;
+    max-width: 750px;
+    background: #0d47a1;
+    border: 1px solid #1c4da8;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.333);
+    font-size: 11px;
+    background: #1565c0;
+    animation: carga 8s linear infinite;
+
+@keyframes carga {
+            0% { background: #0d47a1; }
+            50% { background: #2e68d3; }
+            75% { background: #3777ec; }
+            100% { background: #0d47a1; }
+        }
+}
+
+h1 {
+    text-align: center;
+    color: #ccf0ff;
+    margin-bottom: 10px;
+}
+
+.descripcion {
+    text-align: center;
+    color: #b6d8ff;
+    margin-bottom: 25px;
+}
+
+.informacion {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+/*Info de los puntos*/
+.dato {
+    background: #8cbbfd;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.barra-fondo {
+    height: 10px;
+    background: #3693fd;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+
+#barra-progreso {
+    width: 10%;
+    height: 100%;
+    background: #175bc2;
+    transition: width 0.3s;
+}
+
+#pregunta {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+.imagen-contenedor {
+    background: #fdfdfd;
+    border-radius: 15px;
+    padding: 10px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 250px;
+}
+
+#imagen-componente {
+    width: 100%;
+    max-width: 400px;
+    height: 250px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.opciones {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.opcion {
+    padding: 16px 10px;
+    border: 2px solid #3167b9;
+    border-radius: 12px;
+    background: #0d47a1;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.opcion:hover:not(:disabled) {
+    background: #186be9;
+    border-color: #245db1;
+    transform: translateY(-2px);
+}
+
+.opcion:disabled {
+    cursor: default;
+    opacity: 1;
+}
+
+.correcta {
+    background: #09bb4a !important;
+    border-color: #43b96e !important;
+}
+
+.incorrecta {
+    background: #b91c1c !important;
+    border-color: #e96c6c !important;
+}
+
+#mensaje {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 18px;
+    min-height: 25px;
+}
+
+.boton-principal {
+    display: block;
+    margin: 25px auto 0;
+    background: #0357b6;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 14px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.boton-principal:hover {
+    background: #0952a7;
+}
+
+.oculto {
+    display: none !important;
+}
+
+#resultado {
+    text-align: center;
+    padding: 25px 0;
+}
+
+#resultado h2 {
+    color: #2379c9;
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+
+#puntaje-final {
+    font-size: 48px;
+    font-weight: bold;
+    color: #45cf77;
+    margin: 20px 0;
+}
+
+#resumen {
+    color: #0a499b;
+    line-height: 1.8;
+}
+
+@media (max-width: 500px) {
+    .contenedor {
+        padding: 18px;
+    }
+
+    .opciones {
+        grid-template-columns: 1fr;
+    }
+
+    #pregunta {
+        font-size: 19px;
+    }
+
+    .dato {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+
+.pregunta-teorica {
+    background: #165dc7;
+    color: #f8fafc;
+    padding: 35px 20px;
+    margin-bottom: 25px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 1.5;
+}
