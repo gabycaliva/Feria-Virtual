@@ -95,10 +95,10 @@ const preguntas = [
         nombre: "Todas son correctas",
         pregunta: "¿Qué hacer si estas conectado a un Wi-Fi público?",
         opciones: [
+            "Desactivar el Wi-Fi",
             "No entrar a cuentas personales",
-            "Advanced Transfer Express",
-            "Automated Thermal Exchange",
-            "Active Transistor Xtreme"
+            "Usar VPN",
+            "Todas son correctas"
         ]
     },
     {
