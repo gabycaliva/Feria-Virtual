@@ -290,7 +290,6 @@ footer{
     margin-top:30px;
 }
 
-/* Páginas auxiliares agregadas para el TP N° 18 */
 .contenedor { width: min(900px, 92%); margin: 2rem auto; }
 .tarjeta { margin: 1.5rem 0; padding: 1.5rem; border: 1px solid #cbd7e6; border-radius: 12px; background: #fff; }
 .contenedor.tarjeta { margin-left: auto; margin-right: auto; }
@@ -303,7 +302,6 @@ footer{
 dt { margin-top: 1rem; font-weight: 700; color: #0d47a1; }
 dl { margin: 0; }
 
-/* Reto interactivo sobre emuladores y máquinas virtuales */
 .recurso-interactivo { border: 2px solid #1565c0; }
 .opciones-juego { display: flex; flex-wrap: wrap; gap: 12px; margin: 15px 0; }
 .opciones-juego button, #siguientePregunta { border: 0; border-radius: 6px; padding: 10px 16px; background: #1565c0; color: #fff; font: inherit; cursor: pointer; }
