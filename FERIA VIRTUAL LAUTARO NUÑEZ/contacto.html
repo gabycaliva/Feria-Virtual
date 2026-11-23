@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto | Mi sitio profesional</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header class="contenedor">
+    <h1>Contacto</h1>
+    <p>¿Querés dejarme un mensaje? Completá este formulario de práctica.</p>
+  </header>
+  <main class="contenedor">
+    <form id="formularioContacto" class="formulario tarjeta" action="#" method="post">
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" name="nombre" autocomplete="name" required>
+      <label for="correo">Correo electrónico</label>
+      <input type="email" id="correo" name="correo" autocomplete="email" required>
+      <label for="mensaje">Mensaje</label>
+      <textarea id="mensaje" name="mensaje" rows="6" required></textarea>
+      <button type="submit">Enviar mensaje</button>
+      <p id="respuestaFormulario" class="nota" role="status" aria-live="polite"></p>
+    </form>
+    <p><a href="index.html">Volver al inicio</a> · <a href="glosario.html">Ver glosario</a></p>
+  </main>
+  <script src="../script.js" defer></script>
+</body>
+</html>
+
+
